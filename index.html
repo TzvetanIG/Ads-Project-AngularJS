@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" ng-app="adsApp">
+<head>
+    <meta charset="utf-8">
+    <title>Video System</title>
+    <link rel="stylesheet" href="css/app.css"/>
+</head>
+<body>
+<div id="wrapper" ng-controller="optionsController">
+    <header>{{header}}</header>
+    <div class="padding" >
+        <nav class="main-menu padding" ng-include="template"></nav>
+        <main class="padding" ng-controller="AdsController">
+            <div ng-view></div>
+        </main>
+    </div>
+    <footer>© 2014 by Software University Foundation, No Rights Reserved</footer>
+</div>
+<script src="lib/angular/angular.js"></script>
+<script src="lib/angular/angular-route.js"></script>
+<script src="js/app.js"></script>
+<script src="js/services/pageOptions.js"></script>
+<script src="js/services/ads.js"></script>
+<script src="js/controllers/options-controller.js"></script>
+<script src="js/controllers/ads-controller.js"></script>
+<script src="js/controllers/paging-controller.js"></script>
+</body>
+</html>

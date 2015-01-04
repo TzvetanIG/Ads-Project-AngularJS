@@ -1,0 +1,70 @@
+ul {
+    list-style: none;
+}
+
+html {
+    font-family: "Open Sans", "Roboto", tahoma, verdana, futura, helvetica, sans-serif;
+    font-size: 10px;
+}
+
+#wrapper {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 1.3rem;
+}
+
+.padding {
+    padding: 2rem;
+}
+
+header, footer, .main-menu,  .paging ul a {
+    border:solid 1px #507E32;
+    background-color: #A9D18E;
+}
+
+header, footer {
+    text-align: center;
+    padding: 0.5rem;
+}
+
+header {
+    font-size: 1.6rem;
+}
+
+footer {
+    font-size: 1.2rem;
+}
+
+nav.main-menu {
+    width: 20%;
+    min-width: 100px;
+}
+
+.main-menu, main, .paging ul li{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.button {
+    width: 80px;
+    text-decoration: none;
+    background-color: #70AD47;
+    color: #fff;
+    border: #61973D 1px solid;
+    border-radius: 5px;
+    padding: 1rem;
+    text-align: center;
+    display: inline-block;
+}
+
+.paging {
+    text-align: center;
+}
+
+.paging ul a {
+    color: #000;
+    text-decoration: none;
+    padding: 5px;
+    min-width: 2rem;
+    display: block;
+}
