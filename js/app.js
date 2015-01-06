@@ -1,5 +1,6 @@
 'use strict';
-var adsApp = angular.module('adsApp', ['ngRoute'])
+
+var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/page/:page/', {
@@ -14,3 +15,5 @@ var adsApp = angular.module('adsApp', ['ngRoute'])
                 redirectTo: '/'
             });
     });
+
+adsApp.constant('basicUrl', 'http://localhost:1337/api/');

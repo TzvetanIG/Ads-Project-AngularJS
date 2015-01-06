@@ -1,7 +1,5 @@
 'use strict';
 
-var adsApp = adsApp || {};
-
 adsApp.factory('adsData', function ($http) {
     var serviceUrl = 'http://localhost:1337//',
         pageSize = 10;

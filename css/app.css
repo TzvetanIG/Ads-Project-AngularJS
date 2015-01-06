@@ -49,29 +49,32 @@ nav .sub-menu {
     margin-bottom: 1.5rem;
 }
 
-nav .sub-menu {
+.sub-menu {
     width: 10rem;
     margin-bottom: 1.5rem;
 }
 
-.main-menu, main, .paging ul li, .ad .image,
+.main-menu, aside, main, main > div, .paging ul li, .ad .image,
 .ad > div > *, .ad section, .ad section div span {
     display: inline-block;
     vertical-align: top;
 }
 
-.main-menu .sub-menu h4{
+.sub-menu h4{
     text-align: center;
 }
 
-.main-menu .sub-menu ul li a.pressButton{
+.sub-menu ul li a{
     width: 95%;
-    text-decoration: none;
-    background-color: #DAA600;
     color: #000;
-    border: #7F6000 1px solid;
+    text-decoration: none;
     padding: 0.5rem 0 0.5rem 0.5rem;
     display: inline-block;
+}
+
+.sub-menu ul li a.pressButton{
+    background-color: #DAA600;
+    border: #7F6000 1px solid;
 }
 
 .button {

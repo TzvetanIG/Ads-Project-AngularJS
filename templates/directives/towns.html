@@ -1,0 +1,8 @@
+<div class="sub-menu padding">
+    <h4>Towns</h4>
+    <hr/>
+    <ul>
+        <li><a href="#/town/0" class="pressButton">All</a></li>
+        <li ng-repeat="town in towns"><a href="{{'#/town/' + town.id}}">{{town.name}}</a></li>
+    </ul>
+</div>

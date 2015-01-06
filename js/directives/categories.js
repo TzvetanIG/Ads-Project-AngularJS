@@ -1,17 +1,10 @@
 'use strict';
 
 adsApp.directive('categories', function () {
-    adsData.setPageSize(5);
-    if ($routeParams.page) {
-        var currentPage = $routeParams.page;
-    } else {
-        var currentPage = 1;
-        pageOptions.setNumPages(5);
+    return {
+        templateUrl: 'templates/directives/categories.html',
+        replace: true,
+        restrict: 'E',
+        controller: 'CategoriesController'
     }
-
-    pageOptions.setCurrentPage(Number(currentPage));
-    adsData.getAdsAtPage(currentPage, function (data) {
-        $scope.ads = data.ads;
-        pageOptions.setNumPages(data.numPages);
-    });
 });

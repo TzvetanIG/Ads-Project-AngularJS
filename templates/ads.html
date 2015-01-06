@@ -1,26 +1,32 @@
-<article class="ad padding" ng-repeat="ad in ads">
-    <div>
-        <h4 class="title">{{ad.title}}</h4>
+<div ng-controller="AdsController">
+    <article class="ad padding" ng-repeat="ad in ads">
+        <div>
+            <h4 class="title">{{ad.title}}</h4>
 
-        <div class="date">{{ad.date | date: 'd-MMM-yyyy'}}</div>
-    </div>
-    <div class="image">
-        <img ng-src="{{ad.imageDataUrl}}">
-    </div>
-    <section>
-        <div class="content padding05">
-            {{ad.text}}
+            <div class="date">{{ad.date | date: 'd-MMM-yyyy'}}</div>
         </div>
-        <div>
-            <span class="padding05">Name </span><span class="content padding05">{{ad.ownerName}}</span>
+        <div class="image">
+            <img ng-src="{{ad.imageDataUrl}}">
         </div>
-        <div>
-            <span class="padding05">Email </span><span class="content padding05"><a href="mailto:{{ad.ownerEmail}}">{{ad.ownerEmail}}</a></span>
-        </div>
-        <div>
-            <span class="padding05">Tel. </span><span class="content padding05">{{ad.ownerPhone}}</span>
-        </div>
-    </section>
+        <section>
+            <div class="content padding05">
+                {{ad.text}}
+            </div>
+            <div>
+                <span class="padding05">Name </span><span class="content padding05">{{ad.ownerName}}</span>
+            </div>
+            <div>
+                <span class="padding05">Email </span><span class="content padding05"><a href="mailto:{{ad.ownerEmail}}">{{ad.ownerEmail}}</a></span>
+            </div>
+            <div>
+                <span class="padding05">Tel. </span><span class="content padding05">{{ad.ownerPhone}}</span>
+            </div>
+        </section>
 
-</article>
-<div class="paging" ng-include="'templates/paging.html'" ng-controller="PagingController"></div>
+    </article>
+    <div class="paging" ng-include="'templates/paging.html'" ng-controller="PagingController"></div>
+</div>
+<aside>
+    <categories></categories>
+    <towns></towns>
+</aside>
