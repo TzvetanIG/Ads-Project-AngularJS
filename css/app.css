@@ -1,3 +1,8 @@
+h4, ul {
+    padding: 0;
+    margin: 0;
+}
+
 ul {
     list-style: none;
 }
@@ -8,16 +13,16 @@ html {
 }
 
 #wrapper {
-    width: 80%;
+    width: 80rem;
     margin: 0 auto;
     font-size: 1.3rem;
 }
 
 .padding {
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
-header, footer, .main-menu,  .paging ul a {
+header, footer, .sub-menu,  .paging ul a, .ad {
     border:solid 1px #507E32;
     background-color: #A9D18E;
 }
@@ -35,18 +40,42 @@ footer {
     font-size: 1.2rem;
 }
 
-nav.main-menu {
-    width: 20%;
-    min-width: 100px;
+.main-menu {
+    margin-right: 1.5rem;
 }
 
-.main-menu, main, .paging ul li{
+nav .sub-menu {
+    width: 10rem;
+    margin-bottom: 1.5rem;
+}
+
+nav .sub-menu {
+    width: 10rem;
+    margin-bottom: 1.5rem;
+}
+
+.main-menu, main, .paging ul li, .ad .image,
+.ad > div > *, .ad section, .ad section div span {
     display: inline-block;
     vertical-align: top;
 }
 
+.main-menu .sub-menu h4{
+    text-align: center;
+}
+
+.main-menu .sub-menu ul li a.pressButton{
+    width: 95%;
+    text-decoration: none;
+    background-color: #DAA600;
+    color: #000;
+    border: #7F6000 1px solid;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    display: inline-block;
+}
+
 .button {
-    width: 80px;
+    width: 8rem;
     text-decoration: none;
     background-color: #70AD47;
     color: #fff;
@@ -67,4 +96,56 @@ nav.main-menu {
     padding: 5px;
     min-width: 2rem;
     display: block;
+}
+
+.ad {
+    width: 45rem;
+    margin-bottom: 1.5rem;
+}
+
+.ad .title {
+    width: 70%;
+}
+
+.ad .date {
+    width: 29%;
+    text-align: right;
+}
+
+.ad .image {
+    width: 11rem;
+}
+
+.ad section {
+    width: 33.5rem;
+}
+
+.ad .image img {
+    width: 100%;
+    border: 1px solid #649B3F;
+}
+
+.ad .content {
+    background-color: #C5E0B4;
+    color: #000;
+    border: 1px solid #649B3F;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+
+.padding05 {
+    padding: 0.5rem;
+}
+
+.ad div span:first-of-type {
+    width: 3rem;
+    text-align: right;
+}
+
+.ad div span:last-of-type {
+    width: 28.34rem;
+}
+
+.main-menu .sub-menu *, .ad * {
+    margin-bottom: 0.5rem;
 }

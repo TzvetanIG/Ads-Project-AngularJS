@@ -1,8 +1,6 @@
 'use strict';
 
-var adsApp = adsApp || {};
-
-adsApp.controller('AdsController', function ($scope, adsData, pageOptions, $routeParams) {
+adsApp.directive('categories', function () {
     adsData.setPageSize(5);
     if ($routeParams.page) {
         var currentPage = $routeParams.page;

@@ -5,10 +5,9 @@
     <li>
         <a href="#">Previous</a>
     </li>
-    <li ng-repeat="page in pages">
-        <a href="{{'#/page/' + page}}">{{page}}</a>
+    <li  ng-repeat="page in pages">
+        <a id="{{'page' + page}}" href="{{'#/page/' + page}}">{{page}}</a>
     </li>
-
     <li>
         <a href="#">Next</a>
     </li>

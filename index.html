@@ -2,15 +2,15 @@
 <html lang="en" ng-app="adsApp">
 <head>
     <meta charset="utf-8">
-    <title>Video System</title>
+    <title>Ads</title>
     <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body>
-<div id="wrapper" ng-controller="optionsController">
-    <header>{{header}}</header>
+<div id="wrapper" ng-controller="MainController">
+    <header>{{pageTitle}}</header>
     <div class="padding" >
-        <nav class="main-menu padding" ng-include="template"></nav>
-        <main class="padding" ng-controller="AdsController">
+        <nav class="main-menu" ng-include="navigationTemplate"></nav>
+        <main ng-controller="AdsController">
             <div ng-view></div>
         </main>
     </div>
@@ -21,7 +21,7 @@
 <script src="js/app.js"></script>
 <script src="js/services/pageOptions.js"></script>
 <script src="js/services/ads.js"></script>
-<script src="js/controllers/options-controller.js"></script>
+<script src="js/controllers/main-controller.js"></script>
 <script src="js/controllers/ads-controller.js"></script>
 <script src="js/controllers/paging-controller.js"></script>
 </body>

@@ -5,7 +5,7 @@ var adsApp = adsApp || {};
 adsApp.factory('pageOptions', function () {
     var options = {
         pageTitle: 'Ads - Home',
-        mainMenuTemplate: 'templates/login-menu.html',
+        mainMenuTemplate: 'templates/guest-menu.html',
         currentPage: 1,
         numPages: 1
     };
