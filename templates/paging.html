@@ -1,12 +1,13 @@
 <ul ng-controller="PagingController">
     <li>
-        <a href="#">First</a>
+        <a href="">First</a>
     </li>
     <li>
         <a href="#">Previous</a>
     </li>
     <li  ng-repeat="page in pages">
-        <a id="{{'page' + page}}" href="{{'#/page/' + page}}">{{page}}</a>
+        <a id="{{'page' + page}}" href="{{'#/page/' + page}}"
+                ng-class="{'current-page' : currentPage == page}">{{page}}</a>
     </li>
     <li>
         <a href="#">Next</a>

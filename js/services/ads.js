@@ -1,31 +1,17 @@
 'use strict';
 
-adsApp.factory('adsData', function ($http) {
-    var serviceUrl = 'http://localhost:1337//',
-        pageSize = 10;
-
-    function setPageSize(adsAtPage){
-        pageSize = adsAtPage;
-    }
-
-    function getAllAds(success){
-        $http.get(serviceUrl + 'api/ads')
-            .success(function(data, status, headers, config){
-                console.log(data);
-                success(data);
-            });
-    }
-
-    function getAdsAtPage(startPage, success){
-        $http.get(serviceUrl + 'api/ads?startpage='+startPage +'&pagesize='+ pageSize)
-            .success(function(data, status, headers, config){
-                success(data);
-            });
-    }
+adsApp.factory('adsData', ['$resource', 'basicUrl', function ($resource, basicUrl) {
+    var adsResource = $resource(
+        basicUrl + '/ads',
+        null,
+        {
+            'getAll': {method:'GET'}
+        }
+    );
 
     return {
-        setPageSize: setPageSize,
-        getAllAds: getAllAds,
-        getAdsAtPage: getAdsAtPage
-    }
-});
+        getAds: function(params, success, error) {
+            return adsResource.getAll(params, success, error);
+        }
+    };
+}]);

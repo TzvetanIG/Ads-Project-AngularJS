@@ -1,25 +1,27 @@
 'use strict';
 
-var adsApp = adsApp || {};
-
-adsApp.controller('PagingController', function ($scope, pageOptions) {
-    var currentPage = pageOptions.getCurrentPage(),
-        maxPage = pageOptions.getNumPages(),
+adsApp.controller('PagingController', function ($scope, filterData, pagingSize) {
+    var currentPage = filterData.getCurrentPage(),
+        maxPage = filterData.getNumPages(),
+        pagingSize = pagingSize,
         pages = [],
-        startPage = currentPage - 2,
-        endPage = currentPage + 2;
+        startPage = currentPage - Math.floor(pagingSize /2),
+        endPage = currentPage + Math.floor(pagingSize /2);
+
+
+    $scope.currentPage = filterData.getCurrentPage();
 
     if (endPage > maxPage) {
         endPage = maxPage;
-        startPage = endPage - 4;
+        startPage = endPage - pagingSize - 1;
     }
 
     if (startPage < 1) {
         startPage = 1;
-        if (maxPage < 5 ) {
+        if (maxPage < pagingSize ) {
             endPage = maxPage;
         } else {
-            endPage = 5;
+            endPage = pagingSize;
         }
     }
 

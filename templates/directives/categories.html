@@ -2,7 +2,12 @@
     <h4>Categories</h4>
     <hr/>
     <ul>
-        <li><a href="#/category/0" class="pressButton">All</a></li>
-        <li ng-repeat="category in categories"><a href="{{'#/category/' + category.id}}">{{category.name}}</a></li>
+        <li>
+            <a href="#/category/0" ng-class="{'pressButton' : selectedCategoryId == 0}">All</a>
+        </li>
+        <li ng-repeat="category in categories">
+            <a href="{{'#/category/' + category.id}}"
+               ng-class="{'pressButton' : selectedCategoryId == category.id}">{{category.name}}</a>
+        </li>
     </ul>
 </div>

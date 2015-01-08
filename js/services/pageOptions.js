@@ -1,13 +1,13 @@
 'use strict';
 
-var adsApp = adsApp || {};
-
 adsApp.factory('pageOptions', function () {
     var options = {
         pageTitle: 'Ads - Home',
-        mainMenuTemplate: 'templates/guest-menu.html',
+        navigationTemplate: 'templates/includes/guest-menu.html',
         currentPage: 1,
-        numPages: 1
+        numPages: 1,
+        categoryId: 0,
+        townId: 0
     };
 
     function setPageTitle(title) {
@@ -18,12 +18,12 @@ adsApp.factory('pageOptions', function () {
         return options.pageTitle;
     }
 
-    function setMainMenu(template) {
-        options.mainMenuTemplate = template;
+    function setNavigationTemplate(template) {
+        options.navigationTemplate = template;
     }
 
-    function getMainMenu() {
-        return options.mainMenuTemplate;
+    function getNavigationTemplate() {
+        return options.navigationTemplate;
     }
 
     function setCurrentPage(currentPage) {
@@ -42,14 +42,33 @@ adsApp.factory('pageOptions', function () {
         return options.numPages;
     }
 
+    function setCategoryId(id){
+        options.categoryId = id;
+    }
+
+    function getCategoryId(){
+        return options.categoryId;
+    }
+
+    function setTownId(id){
+        options.townId = id;
+    }
+
+    function getTownId(){
+        return options.townId;
+    }
     return {
         setPageTitle: setPageTitle,
         getPageTitle: getPageTitle,
-        setMainMenu: setMainMenu,
-        getMainMenu: getMainMenu,
+        setNavigationTemplate: setNavigationTemplate,
+        getNavigationTemplate: getNavigationTemplate,
         getCurrentPage: getCurrentPage,
         setCurrentPage: setCurrentPage,
         setNumPages: setNumPages,
-        getNumPages: getNumPages
+        getNumPages: getNumPages,
+        setCategoryId: setCategoryId,
+        getCategoryId: getCategoryId,
+        setTownId: setTownId,
+        getTownId: getTownId
     }
 });

@@ -1,4 +1,4 @@
-<div ng-controller="AdsController">
+<div ng-if="ads">
     <article class="ad padding" ng-repeat="ad in ads">
         <div>
             <h4 class="title">{{ad.title}}</h4>
@@ -24,9 +24,9 @@
         </section>
 
     </article>
-    <div class="paging" ng-include="'templates/paging.html'" ng-controller="PagingController"></div>
+    <div class="paging" ng-include="'templates/paging.html'"></div>
 </div>
-<aside>
+<aside ng-if="ads">
     <categories></categories>
     <towns></towns>
 </aside>

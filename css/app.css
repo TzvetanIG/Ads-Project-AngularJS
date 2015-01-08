@@ -101,6 +101,11 @@ nav .sub-menu {
     display: block;
 }
 
+.paging ul a.current-page {
+    background-color: #548235;
+    color: #fff;
+}
+
 .ad {
     width: 45rem;
     margin-bottom: 1.5rem;
