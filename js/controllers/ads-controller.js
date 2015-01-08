@@ -1,8 +1,8 @@
 'use strict';
 
-var adsApp = adsApp || {};
-
 adsApp.controller('AdsController', function ($scope, adsData, pageOptions, filterData) {
+    pageOptions.setPageTitle('Ads - Home');
+
     adsData.getAds(
         filterData.getFilterObj(),
         function (data) {

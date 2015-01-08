@@ -22,7 +22,7 @@ html {
     padding: 1.5rem;
 }
 
-header, footer, .sub-menu,  .paging ul a, .ad {
+header, footer, .sub-menu,  .paging ul a, .ad, form {
     border:solid 1px #507E32;
     background-color: #A9D18E;
 }
@@ -60,7 +60,7 @@ nav .sub-menu {
     vertical-align: top;
 }
 
-.sub-menu h4{
+.sub-menu h4, .login h4 {
     text-align: center;
 }
 
@@ -87,6 +87,7 @@ nav .sub-menu {
     padding: 1rem;
     text-align: center;
     display: inline-block;
+    cursor: pointer;
 }
 
 .paging {
@@ -154,6 +155,47 @@ nav .sub-menu {
     width: 28.34rem;
 }
 
-.main-menu .sub-menu *, .ad * {
+.main-menu .sub-menu *, .ad *, .login form input {
     margin-bottom: 0.5rem;
+}
+
+.login {
+    width: 61rem;
+}
+
+.login form {
+    width: 30rem;
+    margin: 0 auto;
+}
+
+.login input, .login label {
+    display: block;
+    width: 28rem;
+    margin: auto;
+}
+
+.login .button {
+    margin-top: 0.5rem;
+}
+
+.login form a {
+    float: right;
+}
+
+.message {
+    text-align: center;
+    width: 80%;
+    border: 1px solid #843C0C;
+    margin: auto;
+    margin-bottom: 2rem;
+}
+
+.info-message {
+    background-color: #C5E0B4;
+    color: #000;
+}
+
+.error-message {
+    background-color: #EC795A;
+    color: #fff;
 }

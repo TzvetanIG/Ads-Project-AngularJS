@@ -1,22 +1,21 @@
 'use strict';
 
-adsApp.controller('MainController', function ($scope, $routeParams, $location, filterData, pageOptions) {
+adsApp.controller('MainController', function ($scope, pageOptions, filterData, messageData) {
     $scope.pageTitle =  pageOptions.getPageTitle();
     $scope.navigationTemplate = pageOptions.getNavigationTemplate();
 
-    if($routeParams.categoryId){
-        filterData.setCategoryId($routeParams.categoryId);
+    $scope.resetFilterData = function (){
         filterData.setCurrentPage(1);
+        filterData.setCategoryId(0);
+        filterData.setTownId(0);
     }
 
-    if($routeParams.townId){
-        filterData.setTownId($routeParams.townId);
-        filterData.setCurrentPage(1);
-    }
+    $scope.$on("changePageOptions", function(event) {
+        $scope.pageTitle =  pageOptions.getPageTitle();
+    });
 
-    if($routeParams.page){
-        filterData.setCurrentPage($routeParams.page);
-    }
-
-    $location.path('/ads');
+    $scope.$on("sentMessage", function(event) {
+        $scope.message =  messageData.getMessage();
+        $scope.classMessage = messageData.getClassMessage()
+    });
 });
