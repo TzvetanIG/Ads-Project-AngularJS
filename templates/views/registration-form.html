@@ -1,0 +1,38 @@
+<div class="register" >
+    <message></message>
+    <form class="padding">
+        <h4>User Registration</h4>
+        <hr/>
+        <div>
+            <label for="username" class="padding05">Username:</label>
+        </div>
+        <div>
+            <input type="text" id="username" class="padding05" ng-model="user.username" required>
+        </div>
+        <div>
+            <label for="password" class="padding05">Password:</label>
+            <label for="confirm-password" class="padding05">Confirm password:</label>
+        </div>
+        <div>
+            <input type="password" id="password" class="padding05" ng-model="user.password" required>
+            <input type="password" id="confirm-password" class="padding05" ng-model="user.confirmPassword" required>
+        </div>
+        <div>
+            <label for="name" class="padding05">Name:</label>
+            <label for="email" class="padding05">Email:</label>
+        </div>
+        <div>
+            <input type="text" id="name" class="padding05" ng-model="user.name" required>
+            <input type="email" id="email" class="padding05" ng-model="user.email" required>
+        </div>
+        <div>
+            <label for="phone" class="padding05">Phone:</label>
+            <label for="town" class="padding05">Town:</label>
+        </div>
+        <div>
+            <input type="text" id="phone" class="padding05" ng-model="user.phone" required>
+        </div>
+         <button class="button" ng-click="register(user)">Register</button>
+        <a href="#/login" class="link">Login here</a>
+    </form>
+</div>

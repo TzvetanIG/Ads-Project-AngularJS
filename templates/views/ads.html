@@ -1,0 +1,34 @@
+<div class="ad padding" ng-if="ads.length == 0">No ads found.</div>
+
+<div ng-if="ads">
+    <article class="ad padding" ng-repeat="ad in ads">
+        <div>
+            <h4 class="title">{{ad.title}}</h4>
+
+            <div class="date">{{ad.date | date: 'd-MMM-yyyy'}}</div>
+        </div>
+        <div class="image">
+            <img ng-src="{{ad.imageDataUrl}}">
+        </div>
+        <section>
+            <div class="content padding05">
+                {{ad.text}}
+            </div>
+            <div>
+                <span class="padding05">Name </span><span class="content padding05">{{ad.ownerName}}</span>
+            </div>
+            <div>
+                <span class="padding05">Email </span><span class="content padding05"><a href="mailto:{{ad.ownerEmail}}">{{ad.ownerEmail}}</a></span>
+            </div>
+            <div>
+                <span class="padding05">Tel. </span><span class="content padding05">{{ad.ownerPhone}}</span>
+            </div>
+        </section>
+
+    </article>
+    <div class="paging" ng-include="'templates/paging.html'"></div>
+</div>
+<aside>
+    <categories></categories>
+    <towns></towns>
+</aside>

@@ -1,0 +1,13 @@
+<div class="login" >
+    <message></message>
+    <form class="padding">
+        <h4>Login</h4>
+        <hr/>
+        <label for="username" class="padding05">Username:</label>
+        <input type="text" id="username" class="padding05" ng-model="user.username" required>
+        <label for="password" class="padding05">Password:</label>
+        <input type="password" id="password" class="padding05" ng-model="user.password" required>
+        <button class="button" ng-click="login(user)">Login</button>
+        <a href="#/register" class="link">Register here</a>
+    </form>
+</div>
