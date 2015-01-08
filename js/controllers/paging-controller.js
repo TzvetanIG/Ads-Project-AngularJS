@@ -8,21 +8,17 @@ adsApp.controller('PagingController', function ($scope, filterData, pagingSize) 
         startPage = currentPage - Math.floor(pagingSize /2),
         endPage = currentPage + Math.floor(pagingSize /2);
 
+    $scope.currentPage = currentPage;
+    $scope.previousPage
 
-    $scope.currentPage = filterData.getCurrentPage();
-
-    if (endPage > maxPage) {
+    if(endPage > maxPage){
         endPage = maxPage;
-        startPage = endPage - pagingSize - 1;
+        startPage = maxPage - pagingSize + 1;
     }
 
     if (startPage < 1) {
         startPage = 1;
-        if (maxPage < pagingSize ) {
-            endPage = maxPage;
-        } else {
-            endPage = pagingSize;
-        }
+        endPage = maxPage < pagingSize ? maxPage : pagingSize;
     }
 
     var i;
@@ -30,5 +26,18 @@ adsApp.controller('PagingController', function ($scope, filterData, pagingSize) 
         pages.push(i);
     }
 
+    if(currentPage > 1){
+        $scope.previousPage = currentPage - 1;
+    } else {
+        $scope.previousPage = 1;
+    }
+
+    if(currentPage < maxPage){
+        $scope.nextPage = currentPage + 1;
+    } else {
+        $scope.nextPage = maxPage;
+    }
+
+    $scope.lastPage = maxPage;
     $scope.pages = pages;
 });
