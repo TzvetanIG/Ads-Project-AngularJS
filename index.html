@@ -7,7 +7,13 @@
 </head>
 <body>
 <div id="wrapper" ng-controller="MainController" >
-    <header>{{pageTitle}}</header>
+    <header>
+        {{pageTitle}}
+        <div ng-if="user" class="user-area">
+            <span>{{user.username}}</span>
+            <a ng-click="logout()" class="link">Logout</a>
+        </div>
+    </header>
     <div class="padding" >
         <nav class="main-menu" ng-include="navigationTemplate"></nav>
         <main ng-view>
@@ -35,6 +41,7 @@
 <script src="js/controllers/towns-controller.js"></script>
 <script src="js/controllers/paging-controller.js"></script>
 <script src="js/controllers/login-controller.js"></script>
+<script src="js/controllers/register-controller.js"></script>
 
 <script src="js/directives/categories.js"></script>
 <script src="js/directives/towns.js"></script>

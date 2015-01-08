@@ -20,8 +20,12 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
                 controller: 'AdsController'
             })
             .when('/login', {
-                templateUrl: 'templates/views/login.html',
+                templateUrl: 'templates/views/login-form.html',
                 controller: 'LoginController'
+            })
+            .when('/register', {
+                templateUrl: 'templates/views/registration-form.html',
+                controller: 'RegisterController'
             })
             .otherwise({
                 redirectTo: '/ads'

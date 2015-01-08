@@ -1,6 +1,7 @@
 'use strict';
 
-adsApp.controller('MainController', function ($scope, pageOptions, filterData, messageData) {
+adsApp.controller('MainController', function ($scope, $location, pageOptions,
+                                              filterData, messageData, userData) {
     $scope.pageTitle =  pageOptions.getPageTitle();
     $scope.navigationTemplate = pageOptions.getNavigationTemplate();
 
@@ -17,5 +18,10 @@ adsApp.controller('MainController', function ($scope, pageOptions, filterData, m
     $scope.$on("sentMessage", function(event) {
         $scope.message =  messageData.getMessage();
         $scope.classMessage = messageData.getClassMessage()
+    });
+
+    $scope.$on("login", function(event) {
+        $scope.user =  userData.getCurrentUser();
+        $location.path('#/ads');
     });
 });

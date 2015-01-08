@@ -60,7 +60,7 @@ nav .sub-menu {
     vertical-align: top;
 }
 
-.sub-menu h4, .login h4 {
+.sub-menu h4, .login h4, .register h4 {
     text-align: center;
 }
 
@@ -155,16 +155,22 @@ nav .sub-menu {
     width: 28.34rem;
 }
 
-.main-menu .sub-menu *, .ad *, .login form input {
+.main-menu .sub-menu *, .ad *, .login form input,
+.register form input{
     margin-bottom: 0.5rem;
 }
 
-.login {
+.login, .register{
     width: 61rem;
 }
 
 .login form {
     width: 30rem;
+    margin: 0 auto;
+}
+
+.register form {
+    width: 35rem;
     margin: 0 auto;
 }
 
@@ -174,11 +180,17 @@ nav .sub-menu {
     margin: auto;
 }
 
-.login .button {
+.register input, .register label {
+     display: inline-block;
+     width: 15.4rem;
+     margin: auto;
+ }
+
+.login .button, .register .button {
     margin-top: 0.5rem;
 }
 
-.login form a {
+form a {
     float: right;
 }
 
@@ -198,4 +210,17 @@ nav .sub-menu {
 .error-message {
     background-color: #EC795A;
     color: #fff;
+}
+
+a.link {
+    text-decoration: dotted;
+    color: #3275B2;
+    margin-left: 2rem;
+    margin-right: 1.5rem;
+    cursor: pointer;
+}
+
+.user-area {
+    float: right;
+    font-size: 1.3rem;
 }
