@@ -1,17 +1,38 @@
 'use strict';
 
-adsApp.factory('adsData', ['$resource', 'basicUrl', function ($resource, basicUrl) {
-    var adsResource = $resource(
-        basicUrl + '/ads',
-        null,
-        {
-            'getAll': {method:'GET'}
-        }
-    );
+adsApp.factory('adsData', ['$resource', 'basicUrl', 'userData', function ($resource, basicUrl, userData) {
+    function getAds(params, success, error) {
+        var adsResource = $resource(
+            basicUrl + '/ads',
+            null,
+            {
+                'getAll': {method:'GET'}
+            }
+        );
+
+        return adsResource.getAll(params, success, error);
+    }
+
+    function publishAd(ad, success, error) {
+        var user = userData.getCurrentUser();
+        var adsResource = $resource(
+            basicUrl + 'user/ads',
+            null,
+            {
+                'publishAd': {
+                    method: 'POST',
+                    headers: {Authorization: 'Bearer ' + user.access_token},
+                    data: ad
+                }
+            }
+        );
+
+        return adsResource.publishAd(ad, success, error);
+    }
 
     return {
-        getAds: function(params, success, error) {
-            return adsResource.getAll(params, success, error);
-        }
+        getAds: getAds,
+        publishAd: publishAd
     };
+
 }]);

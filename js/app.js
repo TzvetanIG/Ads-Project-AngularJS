@@ -27,9 +27,13 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute', 'ngSanitize'])
                 templateUrl: 'templates/views/registration-form.html',
                 controller: 'RegisterController'
             })
-            .when('/my-ads', {
-                templateUrl: 'templates/views/ads.html',
-                //controller: 'RouteController'
+            .when('/user/ads', {
+                templateUrl: 'templates/views/user-ads.html',
+                controller: 'UserAdsController'
+            })
+            .when('/user/ads/:userAdId', {
+                templateUrl: 'templates/views/user-ads.html',
+                controller: 'RouteController'
             })
             .when('/publish-new-ad', {
                 templateUrl: 'templates/views/publish-new-ad.html',

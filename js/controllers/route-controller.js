@@ -21,5 +21,10 @@ adsApp.controller('RouteController', function ($scope, $routeParams, $location, 
         filterData.setCurrentPage($routeParams.page);
     }
 
-    $location.path('/ads');
+    if($location.path().indexOf('user') == -1){
+        $location.path('/ads');
+    } else {
+        $location.path('/user/ads');
+    }
+
 });

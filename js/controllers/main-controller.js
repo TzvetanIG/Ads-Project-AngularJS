@@ -1,6 +1,6 @@
 'use strict';
 
-adsApp.controller('MainController', function ($scope, $location, pageOptions,
+adsApp.controller('MainController', function ($scope, $location, $rootScope, pageOptions,
                                               filterData, messageData, userData) {
     $scope.pageTitle =  pageOptions.getPageTitle();
     $scope.navigationTemplate = pageOptions.getNavigationTemplate();
@@ -15,6 +15,11 @@ adsApp.controller('MainController', function ($scope, $location, pageOptions,
         userData.logout();
         $scope.user = undefined;
         pageOptions.setNavigationTemplate('templates/includes/guest-menu.html');
+    };
+
+    $scope.cancel = function () {
+        $rootScope.$broadcast('cancel');
+        $location.path('#/ads');
     };
 
     $scope.$on("changePageOptions", function(event) {

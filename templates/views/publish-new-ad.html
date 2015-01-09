@@ -11,31 +11,31 @@
             </div>
             <div>
                 <label for="text" class="padding05">Text:</label>
-                <textarea id="text" class="padding05" ng-model="ad.title" required></textarea>
+                <textarea id="text" class="padding05" ng-model="ad.text" required></textarea>
             </div>
 
         </div>
         <div>
             <label for="text" class="padding05">Image:</label>
-            <input type="file" id="image" class="padding05" ng-model="ad.imageUrl" required>
+            <input type="file" id="image" class="padding05" ng-model="ad.imageDataURL">
         </div>
         <div>
             <label class="padding05">Category:</label>
-            <select class="padding05" ng-model="user.categoryId"
-                    ng-options="category.id as category.name for category in categories track by category.id">
+            <select class="padding05" ng-model="ad.categoryId"
+                    ng-options="category.id as category.name for category in categories">
                 <option value="">-- choose town --</option>
             </select>
         </div>
         <div>
             <label class="padding05">Town:</label>
-            <select class="padding05" ng-model="user.townId"
-                    ng-options="town.id as town.name for town in towns track by town.id">
+            <select class="padding05" ng-model="ad.townId"
+                    ng-options="town.id as town.name for town in towns">
                 <option value="">-- choose town --</option>
             </select>
         </div>
         <div class="center">
-            <button class="button" ng-click="register(user)">Publish</button>
-            <button class="button" ng-click="register(user)">Cancel</button>
+            <button class="button" ng-click="publishAd(ad)">Publish</button>
+            <button class="button" ng-click="cancel()">Cancel</button>
         </div>
     </form>
 </div>

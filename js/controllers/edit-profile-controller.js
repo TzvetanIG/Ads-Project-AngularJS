@@ -10,7 +10,7 @@ adsApp.controller('EditProfileController', ['$scope', 'townsData', 'pageOptions'
         $scope.updateUser = function (user) {
             userData.editUserProfile(user,
                 function (data) {
-                    messageData.sentInfoMessage('Success update');
+                    messageData.sentInfoMessage('Successfully update.');
                 },
                 function (error) {
                     messageData.sentErrorMessage('Update failed', error)
