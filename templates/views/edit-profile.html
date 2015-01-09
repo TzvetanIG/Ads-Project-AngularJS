@@ -1,6 +1,6 @@
 <div class="edit-profile">
     <message></message>
-    <div>
+    <div ng-if="user">
         <form class="padding">
             <h4>Edit Profile</h4>
             <hr/>
@@ -12,17 +12,17 @@
             <input type="email" id="email" class="padding05" ng-model="user.email" required>
 
             <label for="phone" class="padding05">Phone:</label>
-            <input type="text" id="phone" class="padding05" ng-model="user.phone">
+            <input type="text" id="phone" class="padding05" ng-model="user.phoneNumber">
 
             <label for="town" class="padding05">Town:</label>
             <select class="padding05" ng-model="user.townId"
-                    ng-options="town.id as town.name for town in towns track by town.id">
+                    ng-options="town.id as town.name for town in towns">
                 <option value="">-- choose town --</option>
             </select>
 
             <div class="center">
-                <button class="button" ng-click="register(user)">Register</button>
-                <button class="button" ng-click="cancel(user)">Cancel</button>
+                <button class="button" ng-click="updateUser(user)">Update</button>
+                <button class="button" ng-click="cancel()">Cancel</button>
             </div>
 
         </form>
@@ -40,8 +40,8 @@
             <input type="password" id="confirm-password" class="padding05" ng-model="user.confirmPassword" required>
 
             <div class="center">
-                <button class="button button-large" ng-click="register(user)">Change Password</button>
-                <button class="button" ng-click="register(user)">Cancel</button>
+                <button class="button button-large" ng-click="changePassword(password)">Change Password</button>
+                <button class="button" ng-click="cancel()">Cancel</button>
             </div>
         </form>
     </div>
