@@ -27,6 +27,18 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute', 'ngSanitize'])
                 templateUrl: 'templates/views/registration-form.html',
                 controller: 'RegisterController'
             })
+            .when('/my-ads', {
+                templateUrl: 'templates/views/ads.html',
+                //controller: 'RouteController'
+            })
+            .when('/publish-new-ad', {
+                templateUrl: 'templates/views/publish-new-ad.html',
+                controller: 'PublishNewAdController'
+            })
+            .when('/edit-profile', {
+                templateUrl: 'templates/views/edit-profile.html',
+                controller: 'EditProfileController'
+            })
             .otherwise({
                 redirectTo: '/ads'
             });

@@ -1,10 +1,10 @@
-<div class="sub-menu padding">
+<div class="sub-menu padding" ng-controller="NavigationController">
     <h4>Navigation</h4>
     <hr/>
     <ul>
-        <li><a href="#/" class="pressButton" ng-click="resetFilterData()">Home</a></li>
-        <li><a href="#/my-ads"  ng-click="resetFilterData()">My Ads</a></li>
-        <li><a href="#/publish-new-ad"  ng-click="resetFilterData()">Publish New Ad</a></li>
-        <li><a href="#/edit-profile"  ng-click="resetFilterData()">Edit Profile</a></li>
+        <li><a href="#/" ng-class="{'pressButton' : choiceItem == 0}" ng-click="resetFilterData(); setChoiceItem(0)">Home</a></li>
+        <li><a href="#/my-ads"  ng-class="{'pressButton' : choiceItem == 1}" ng-click="setChoiceItem(1)">My Ads</a></li>
+        <li><a href="#/publish-new-ad" ng-class="{'pressButton' : choiceItem == 2}" ng-click="setChoiceItem(2)">Publish New Ad</a></li>
+        <li><a href="#/edit-profile" ng-class="{'pressButton' : choiceItem == 3}" ng-click="setChoiceItem(3)">Edit Profile</a></li>
     </ul>
 </div>

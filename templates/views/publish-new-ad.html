@@ -1,0 +1,41 @@
+<div class="publish-add">
+    <message></message>
+    <form class="padding">
+        <h4>Publish New Ad</h4>
+        <hr/>
+        <div>
+            <img>
+            <div>
+                <label for="title" class="padding05">Title:</label>
+                <input type="text" id="title" class="padding05" ng-model="ad.title" required>
+            </div>
+            <div>
+                <label for="text" class="padding05">Text:</label>
+                <textarea id="text" class="padding05" ng-model="ad.title" required></textarea>
+            </div>
+
+        </div>
+        <div>
+            <label for="text" class="padding05">Image:</label>
+            <input type="file" id="image" class="padding05" ng-model="ad.imageUrl" required>
+        </div>
+        <div>
+            <label class="padding05">Category:</label>
+            <select class="padding05" ng-model="user.categoryId"
+                    ng-options="category.id as category.name for category in categories track by category.id">
+                <option value="">-- choose town --</option>
+            </select>
+        </div>
+        <div>
+            <label class="padding05">Town:</label>
+            <select class="padding05" ng-model="user.townId"
+                    ng-options="town.id as town.name for town in towns track by town.id">
+                <option value="">-- choose town --</option>
+            </select>
+        </div>
+        <div class="center">
+            <button class="button" ng-click="register(user)">Publish</button>
+            <button class="button" ng-click="register(user)">Cancel</button>
+        </div>
+    </form>
+</div>

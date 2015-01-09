@@ -54,13 +54,13 @@ nav .sub-menu {
     margin-bottom: 1.5rem;
 }
 
-.main-menu, aside, main, main > div, .paging ul li, .ad .image,
+.main-menu, aside, main, main > div, main > div > div > form, .paging ul li, .ad .image,
 .ad > div > *, .ad section, .ad section div span {
     display: inline-block;
     vertical-align: top;
 }
 
-.sub-menu h4, .login h4, .register h4 {
+.sub-menu h4, .login h4, .register h4, .edit-profile h4 {
     text-align: center;
 }
 
@@ -90,7 +90,7 @@ nav .sub-menu {
     cursor: pointer;
 }
 
-.paging {
+.paging, .center {
     text-align: center;
 }
 
@@ -156,11 +156,13 @@ nav .sub-menu {
 }
 
 .main-menu .sub-menu *, .ad *, .login form input,
-.register form input{
+.register form input, .edit-profile form input,
+.publish-add form input, .publish-add select,
+.publish-add textarea {
     margin-bottom: 0.5rem;
 }
 
-.login, .register{
+.login, .register, .edit-profile, .publish-add {
     width: 61rem;
 }
 
@@ -172,6 +174,31 @@ nav .sub-menu {
 .register form {
     width: 35rem;
     margin: 0 auto;
+}
+
+.publish-add form {
+    width: 40rem;
+    margin: 0 auto;
+}
+
+.edit-profile form {
+    width: 24rem;
+}
+
+.edit-profile > div {
+    width: 55rem;
+    margin: auto;
+}
+
+.edit-profile input, .edit-profile label, .edit-profile select
+{
+    display: block;
+    width: 21rem;
+    margin: auto;
+}
+
+.button-large {
+    width: 14rem;
 }
 
 .login input, .login label {
@@ -186,7 +213,35 @@ nav .sub-menu {
      margin: auto;
  }
 
-.login .button, .register .button {
+.publish-add input, .publish-add textarea {
+    display: inline-block;
+    width: 17.5rem;
+    margin: auto;
+}
+
+.publish-add label {
+    width: 5rem;
+    display: inline-block;
+    text-align: right;
+}
+
+.publish-add img {
+    width: 13.5rem;
+    height: 9rem;
+    border: 1px solid #843C0C;
+    float: right;
+}
+
+.publish-add textarea {
+    height: 5rem;
+}
+
+.publish-add input[type=file], .publish-add select {
+    width: 32rem;
+}
+
+.login .button, .register .button,
+.edit-profile .button {
     margin-top: 0.5rem;
 }
 
