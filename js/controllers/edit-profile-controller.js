@@ -17,5 +17,16 @@ adsApp.controller('EditProfileController', ['$scope', 'townsData', 'pageOptions'
                 }
             );
         }
+
+        $scope.changePassword = function (password) {
+            userData.changePassword(password,
+                function () {
+                    messageData.sentInfoMessage('The password is changed successfully.');
+                },
+                function (error) {
+                    messageData.sentErrorMessage('The password is not changed', error)
+                }
+            );
+        }
     }]
 );

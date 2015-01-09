@@ -30,14 +30,14 @@
         <form class="padding">
             <h4>Change Password</h4>
             <hr/>
-            <label for="oldPassword" class="padding05">Password:</label>
-            <input type="password" id="oldPassword" class="padding05" ng-model="user.oldPassword" required>
+            <label for="oldPassword" class="padding05">Old password:</label>
+            <input type="password" id="oldPassword" class="padding05" ng-model="password.oldPassword" required>
 
             <label for="password" class="padding05">Password:</label>
-            <input type="password" id="password" class="padding05" ng-model="user.password" required>
+            <input type="password" id="password" class="padding05" ng-model="password.newPassword" required>
 
             <label for="confirm-password" class="padding05">Confirm password:</label>
-            <input type="password" id="confirm-password" class="padding05" ng-model="user.confirmPassword" required>
+            <input type="password" id="confirm-password" class="padding05" ng-model="password.confirmPassword" required>
 
             <div class="center">
                 <button class="button button-large" ng-click="changePassword(password)">Change Password</button>

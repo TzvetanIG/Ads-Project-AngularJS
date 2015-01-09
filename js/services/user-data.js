@@ -32,17 +32,21 @@ adsApp.factory('userData', ['$http', '$resource', 'basicUrl', function ($http, $
         return userProfileResource.getUserProfile(userData, success, error);
     }
 
-    function changePassword(success, error) {
+    function changePassword(password, success, error) {
         var user = getCurrentUser();
         var userProfileResource = $resource(
-            basicUrl + 'user/changepassword',
+            basicUrl + 'user/ChangePassword',
             null,
             {
-                'changePassword': {method: 'PUT', headers: {Authorization: 'Bearer ' + user.access_token}}
+                'changePassword': {
+                    method: 'PUT',
+                    headers: {Authorization: 'Bearer ' + user.access_token},
+                    data: password
+                }
             }
         );
 
-        return userProfileResource.getUserProfile(success, error);
+        return userProfileResource.changePassword(password, success, error);
     }
 
     function login(user, success, error) {
