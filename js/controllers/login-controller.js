@@ -12,7 +12,7 @@ adsApp.controller('LoginController', function ($scope, $rootScope, pageOptions, 
                     $rootScope.$broadcast('login');
                 },
                 function (data) {
-                    messageData.sentErrorMessage(data.error_description);
+                    messageData.sentErrorMessage('Login failed', data);
                 });
         }
     }

@@ -18,7 +18,25 @@ adsApp.factory('messageData', function ($rootScope, $timeout) {
         }, 3000);
     }
 
-    function sentErrorMessage(msg) {
+    function sentErrorMessage(msg, serverError) {
+        var errors = [];
+        if (serverError && serverError.error_description) {
+            errors.push(serverError.error_description);
+        }
+        if (serverError && serverError.modelState) {
+            var modelStateErrors = serverError.modelState;
+            for (var propertyName in modelStateErrors) {
+                var errorMessages = modelStateErrors[propertyName];
+                var trimmedName = propertyName.substr(propertyName.indexOf('.') + 1);
+                for (var i = 0; i < errorMessages.length; i++) {
+                    var currentError = errorMessages[i];
+                    errors.push(trimmedName + ' - ' + currentError);
+                }
+            }
+        }
+        if (errors.length > 0) {
+            msg = msg + ":<br>" + errors.join("<br>");
+        }
         message = msg;
         classMessage['info-message'] = false;
         classMessage['error-message'] = true;
@@ -26,7 +44,7 @@ adsApp.factory('messageData', function ($rootScope, $timeout) {
         $timeout(function () {
             message = undefined;
             $rootScope.$broadcast("sentMessage");
-        }, 3000);
+        }, 10000);
     }
 
     function getMessage(){

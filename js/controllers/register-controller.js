@@ -6,16 +6,15 @@ adsApp.controller('RegisterController', function ($scope, $rootScope, pageOption
 
     $scope.towns = townsData.getTowns();
 
-    $scope.login = function (user) {
-        if (user && user.username && user.password) {
-            userData.login(user,
-                function (data) {
-                    messageData.sentInfoMessage('Login success.');
-                    $rootScope.$broadcast('login');
-                },
-                function (data) {
-                    messageData.sentErrorMessage(data.error_description);
-                });
-        }
+    $scope.register = function (user) {
+        userData.register(user,
+            function (data) {
+                messageData.sentInfoMessage('User account created. Please login.');
+                $scope.user = undefined;
+            },
+            function (data) {
+                messageData.sentErrorMessage('User registration failed', data);
+                console.log()
+            });
     }
 });

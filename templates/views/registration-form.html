@@ -31,7 +31,7 @@
         </div>
         <div>
             <input type="text" id="phone" class="padding05" ng-model="user.phone" required>
-            <select class="padding05" ng-model="userTown" ng-options="town.name for town in towns">
+            <select class="padding05" ng-model="user.townId" ng-options="town.id as town.name for town in towns track by town.id">
                 <option value="">-- choose town --</option>
             </select>
         </div>

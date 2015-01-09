@@ -18,6 +18,20 @@ adsApp.factory('userData', ['$http', 'basicUrl', function ($http, basicUrl) {
                 .error(error);
     }
 
+    function register(user, success, error) {
+        var request = {
+            method: 'POST',
+            url: basicUrl + 'user/register',
+            data: user
+        };
+
+        $http(request)
+            .success(function(data) {
+                success(data);
+            })
+            .error(error);
+    }
+
     function getCurrentUser(){
         var userObject = sessionStorage['currentUser'];
         if (userObject) {
@@ -32,6 +46,7 @@ adsApp.factory('userData', ['$http', 'basicUrl', function ($http, basicUrl) {
     return {
         login: login,
         getCurrentUser: getCurrentUser,
-        logout: logout
+        logout: logout,
+        register: register
     };
 }]);

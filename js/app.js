@@ -1,6 +1,6 @@
 'use strict';
 
-var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
+var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute', 'ngSanitize'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/category/:categoryId/', {
@@ -32,6 +32,6 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute'])
             });
     });
 
-adsApp.constant('basicUrl', 'http://softuni-ads.azurewebsites.net/api/');
+adsApp.constant('basicUrl', 'http://localhost:1337/api/');
 adsApp.constant('pageSize', 2);
 adsApp.constant('pagingSize', 5);
