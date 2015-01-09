@@ -31,6 +31,9 @@
         </div>
         <div>
             <input type="text" id="phone" class="padding05" ng-model="user.phone" required>
+            <select class="padding05" ng-model="userTown" ng-options="town.name for town in towns">
+                <option value="">-- choose town --</option>
+            </select>
         </div>
          <button class="button" ng-click="register(user)">Register</button>
         <a href="#/login" class="link">Login here</a>
