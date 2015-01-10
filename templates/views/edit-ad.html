@@ -15,7 +15,7 @@
 
             <div>
                 <label for="text" class="padding05">Image:</label>
-                <input type="file" id="image" class="padding05" ng-model="ad.imageDataURL">
+                <input type="file" id="image" class="padding05" ng-model="imageFile">
             </div>
             <div>
                 <label class="padding05">Category:</label>
@@ -36,12 +36,11 @@
             <div class="image">
                 <img ng-src="{{ad.imageDataUrl}}">
             </div>
-
             <a class="button button-large">Change image</a>
             <a class="button button-large">Delete image</a>
         </section>
         <div class="center">
-            <button class="button" ng-click="publishAd(ad)">Edit</button>
+            <button class="button" ng-click="editAd(ad)">Edit</button>
             <button class="button" ng-click="cancel()">Cancel</button>
         </div>
     </form>

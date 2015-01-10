@@ -96,13 +96,31 @@ adsApp.factory('adsData', ['$resource', 'basicUrl', 'userData',
             return adsResource.getAdById(id, success, error);
         }
 
+        function editAd(id, ad, success, error) {
+            var user = userData.getCurrentUser();
+            var adsResource = $resource(
+                basicUrl + 'user/ads/' + id,
+                null,
+                {
+                    'editAd': {
+                        method: 'PUT',
+                        headers: {Authorization: 'Bearer ' + user.access_token},
+                        data: ad
+                    }
+                }
+            );
+
+            return adsResource.editAd(id, ad, success, error);
+        }
+
         return {
             getAds: getAds,
             publishAd: publishAd,
             getUserAds: getUserAds,
             putRequest: putRequest,
             deleteAd: deleteAd,
-            getAdById: getAdById
+            getAdById: getAdById,
+            editAd: editAd
         };
 
     }]);
