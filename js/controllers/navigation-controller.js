@@ -1,18 +1,29 @@
 'use strict';
 
-adsApp.controller('NavigationController', function ($scope) {
+adsApp.controller('NavigationController', function ($scope, filterData, pageOptions) {
     $scope.choiceItem = 0;
-    $scope.choiceMyAdsItem = 0;
+    $scope.statusId = -1;
 
     $scope.$on('cancel', function(){
-        $scope.choiceItem = 0;
+        $scope.statusId = null;
     });
 
     $scope.setChoiceItem = function(itemId) {
         $scope.choiceItem = itemId;
-    }
+        if(itemId == 1){
+            filterData.setCurrentPage(1);
+            pageOptions.setAdsPath('/user/ads');
+            $scope.statusId = -1;
+        }
 
-    $scope.setChoiceMyAdsItem = function(itemId) {
-        $scope.choiceMyAdsItem = itemId;
-    }
+        if(itemId == 0){
+            filterData.setCurrentPage(1);
+            pageOptions.setAdsPath('/ads')
+        }
+    };
+
+    $scope.setStatus = function(itemId) {
+        filterData.setCurrentPage(1);
+        $scope.statusId = itemId;
+    };
 });

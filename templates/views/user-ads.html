@@ -1,7 +1,8 @@
-<div class="my-ad padding" ng-if="ads.length == 0">No ads found.</div>
+<div class="user-ad padding" ng-if="ads.length == 0">No ads found.</div>
 
 <div ng-if="ads">
-    <article class="ad padding" ng-repeat="ad in ads">
+    <message></message>
+    <article class="user-ad padding" ng-repeat="ad in ads">
         <div>
             <h4 class="title">{{ad.title}}</h4>
 
@@ -15,13 +16,28 @@
                 {{ad.text}}
             </div>
             <div>
-                <span class="padding05">Category: </span><span class="content padding05">{{ad.ownerName}}</span>
+                <span class="padding05">Category: </span><span class="content padding05">{{checkForNull(ad.categoryName)}}</span>
             </div>
             <div>
-                <span class="padding05">Town: </span><span class="content padding05"><a href="mailto:{{ad.ownerEmail}}">{{ad.ownerEmail}}</a></span>
+                <span class="padding05">Town: </span><span class="content padding05">{{checkForNull(ad.townName)}}</span>
             </div>
         </section>
-
+        <section class="center">
+            <div>Status</div>
+            <span class="content padding05 button-large">{{ad.status}}</span>
+            <button class="button button-large"
+                    ng-if="ad.status == 'Published' || ad.status == 'WaitingApproval'"
+                    ng-click="deactivate(ad.id, $index)">
+                Deactivate
+            </button>
+            <button class="button button-large" ng-if="ad.status == 'Inactive' || ad.status == 'Rejected'">Edit</button>
+            <button class="button button-large"
+                    ng-if="ad.status == 'Inactive' || ad.status == 'Rejected'"
+                    ng-click="publishAgain(ad.id, $index)">
+                Publish Again
+            </button>
+            <button class="button button-large" ng-if="ad.status == 'Inactive' || ad.status == 'Rejected'">Delete</button>
+        </section>
     </article>
     <div class="paging" ng-include="'templates/paging.html'"></div>
 </div>

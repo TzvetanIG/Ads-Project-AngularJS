@@ -4,10 +4,7 @@ adsApp.factory('pageOptions', function ($rootScope) {
     var options = {
         pageTitle: 'Ads - Home',
         navigationTemplate: 'templates/includes/guest-menu.html',
-        currentPage: 1,
-        numPages: 1,
-        categoryId: 0,
-        townId: 0
+        adsPath: '#/ads'
     };
 
     function setPageTitle(title) {
@@ -28,10 +25,20 @@ adsApp.factory('pageOptions', function ($rootScope) {
         return options.navigationTemplate;
     }
 
+    function setAdsPath(path) {
+        options.adsPath = path;
+    }
+
+    function getAdsPath() {
+        return options.adsPath;
+    }
+
     return {
         setPageTitle: setPageTitle,
         getPageTitle: getPageTitle,
         setNavigationTemplate: setNavigationTemplate,
-        getNavigationTemplate: getNavigationTemplate
+        getNavigationTemplate: getNavigationTemplate,
+        setAdsPath: setAdsPath,
+        getAdsPath: getAdsPath
     }
 });

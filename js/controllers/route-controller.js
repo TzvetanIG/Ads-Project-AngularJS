@@ -1,6 +1,6 @@
 'use strict';
 
-adsApp.controller('RouteController', function ($scope, $routeParams, $location, filterData) {
+adsApp.controller('RouteController', function ($scope, $routeParams, $location, filterData, pageOptions) {
     $scope.resetFilterData = function () {
         filterData.setCurrentPage(1);
         filterData.setCategoryId(0);
@@ -21,10 +21,10 @@ adsApp.controller('RouteController', function ($scope, $routeParams, $location, 
         filterData.setCurrentPage($routeParams.page);
     }
 
-    if($location.path().indexOf('user') == -1){
-        $location.path('/ads');
-    } else {
-        $location.path('/user/ads');
+    if($routeParams.statusId){
+        filterData.setStatusId($routeParams.statusId);
     }
+
+    $location.path(pageOptions.getAdsPath());
 
 });

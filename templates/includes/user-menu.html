@@ -14,11 +14,11 @@
     <h4>My Ads</h4>
     <hr/>
     <ul>
-        <li><a href="#/user/ads" ng-class="{'pressButton' : choiceMyAdsItem == 0}" ng-click="resetFilterData(); setChoiceMyAdsItem(0)">All</a></li>
-        <li><a href="#/user/ads/1"  ng-class="{'pressButton' : choiceMyAdsItem == 1}" ng-click="setChoiceMyAdsItem(1)">Published</a></li>
-        <li><a href="#/user/ads/2" ng-class="{'pressButton' : choiceMyAdsItem == 2}" ng-click="setChoiceMyAdsItem(2)">Waiting Approval</a></li>
-        <li><a href="#/user/ads/3" ng-class="{'pressButton' : choiceMyAdsItem == 3}" ng-click="setChoiceMyAdsItem(3)">Inactive</a></li>
-        <li><a href="#/user/ads/4" ng-class="{'pressButton' : choiceMyAdsItem == 4}" ng-click="setChoiceMyAdsItem(4)">Rejected</a></li>
+        <li><a href="#/user/ads/-1" ng-class="{'pressButton' : statusId == -1}" ng-click="resetFilterData(); setStatus(-1)">All</a></li>
+        <li><a href="#/user/ads/2"  ng-class="{'pressButton' : statusId == 2}" ng-click="setStatus(2)">Published</a></li>
+        <li><a href="#/user/ads/1" ng-class="{'pressButton' : statusId == 1}" ng-click="setStatus(1)">Waiting Approval</a></li>
+        <li><a href="#/user/ads/0" ng-class="{'pressButton' : statusId == 0}" ng-click="setStatus(0)">Inactive</a></li>
+        <li><a href="#/user/ads/3" ng-class="{'pressButton' : statusId == 3}" ng-click="setStatus(3)">Rejected</a></li>
     </ul>
 </div>
 </div>

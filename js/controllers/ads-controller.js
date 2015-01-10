@@ -4,10 +4,11 @@ adsApp.controller('AdsController', function ($scope, adsData, pageOptions, filte
     pageOptions.setPageTitle('Ads - Home');
 
     adsData.getAds(
-        filterData.getFilterObj(),
+        filterData.getFilterAds(),
         function (data) {
             $scope.ads = data.ads;
             filterData.setNumPages(data.numPages);
             $scope.showAds = true;
-        });
+        }
+    );
 });

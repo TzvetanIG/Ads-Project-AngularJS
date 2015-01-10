@@ -4,7 +4,8 @@ adsApp.factory('filterData', function (pageSize) {
     var categoryId = 0,
         townId = 0,
         currentPage = 1,
-        numPages = 1;
+        numPages = 1,
+        statusId = -1;
 
     function setNumPages(maxPage) {
         numPages = Number(maxPage);
@@ -46,7 +47,15 @@ adsApp.factory('filterData', function (pageSize) {
         return townId;
     }
 
-    function getFilterObj(){
+    function setStatusId(id) {
+        statusId = Number(id);
+    }
+
+    function getStatusId() {
+        return statusId;
+    }
+
+    function getFilterAds(){
         var filter = {
             pageSize: pageSize,
             startPage: currentPage
@@ -71,6 +80,23 @@ adsApp.factory('filterData', function (pageSize) {
         return filter
     }
 
+    function getFilterUserAds(){
+        var filter = {
+            pageSize: pageSize,
+            startPage: currentPage
+        };
+
+        if(statusId != -1){
+            filter.status = statusId;
+        } else {
+            if(filter.status){
+                delete filter.status;
+            }
+        }
+
+        return filter
+    }
+
     return {
         getCurrentPage: getCurrentPage,
         setCurrentPage: setCurrentPage,
@@ -82,6 +108,9 @@ adsApp.factory('filterData', function (pageSize) {
         getCategoryId: getCategoryId,
         setTownId: setTownId,
         getTownId: getTownId,
-        getFilterObj: getFilterObj
+        getStatusId: getStatusId,
+        setStatusId: setStatusId,
+        getFilterAds: getFilterAds,
+        getFilterUserAds: getFilterUserAds
     }
 });

@@ -22,7 +22,7 @@ html {
     padding: 1.5rem;
 }
 
-header, footer, .sub-menu,  .paging ul a, .ad, form {
+header, footer, .sub-menu,  .paging ul a, .ad, form, .user-ad {
     border:solid 1px #507E32;
     background-color: #A9D18E;
 }
@@ -55,7 +55,8 @@ nav .sub-menu {
 }
 
 .main-menu, aside, main, main > div, main > div > div > form, .paging ul li, .ad .image,
-.ad > div > *, .ad section, .ad section div span {
+.ad > div > *, .ad section, .ad section div span,
+.user-ad .image, .user-ad > div > *, .user-ad section, .user-ad section span {
     display: inline-block;
     vertical-align: top;
 }
@@ -112,6 +113,11 @@ nav .sub-menu {
     margin-bottom: 1.5rem;
 }
 
+.user-ad {
+    width: 58rem;
+    margin-bottom: 1.5rem;
+}
+
 .ad .title {
     width: 70%;
 }
@@ -121,7 +127,16 @@ nav .sub-menu {
     text-align: right;
 }
 
-.ad .image {
+.user-ad .title {
+    width: 50%;
+}
+
+.user-ad .date {
+    width: 13%;
+    text-align: right;
+}
+
+.ad .image, .user-ad .image {
     width: 11rem;
 }
 
@@ -129,12 +144,22 @@ nav .sub-menu {
     width: 33.5rem;
 }
 
-.ad .image img {
+.user-ad section:first-of-type {
+    width: 26rem;
+}
+
+.user-ad section:last-of-type {
+    width: 19rem;
+    border-left: 1px solid #507E32;
+    margin-left: 1rem
+}
+
+.ad .image img, .user-ad .image img {
     width: 100%;
     border: 1px solid #649B3F;
 }
 
-.ad .content {
+.ad .content, .user-ad .content {
     background-color: #C5E0B4;
     color: #000;
     border: 1px solid #649B3F;
@@ -151,11 +176,20 @@ nav .sub-menu {
     text-align: right;
 }
 
+.user-ad div span:first-of-type {
+    width: 5.5rem;
+    text-align: right;
+}
+
 .ad div span:last-of-type {
     width: 28.34rem;
 }
 
-.main-menu .sub-menu *, .ad *, .login form input,
+.user-ad div span:last-of-type {
+    width: 18.2rem;
+}
+
+.main-menu .sub-menu *, .ad *, .user-ad *,.login form input,
 .register form input, .edit-profile form input,
 .publish-add form input, .publish-add select,
 .publish-add textarea {

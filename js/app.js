@@ -31,7 +31,7 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute', 'ngSanitize'])
                 templateUrl: 'templates/views/user-ads.html',
                 controller: 'UserAdsController'
             })
-            .when('/user/ads/:userAdId', {
+            .when('/user/ads/:statusId', {
                 templateUrl: 'templates/views/user-ads.html',
                 controller: 'RouteController'
             })
