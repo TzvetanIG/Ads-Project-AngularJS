@@ -1,11 +1,11 @@
 'use strict';
 
-adsApp.controller('NavigationController', function ($scope, filterData, pageOptions) {
+adsApp.controller('NavigationController', function ($scope, $location, filterData, pageOptions) {
     $scope.choiceItem = 0;
     $scope.statusId = -1;
 
     $scope.$on('cancel', function(){
-        $scope.statusId = null;
+        $scope.statusId = -1;
     });
 
     $scope.setChoiceItem = function(itemId) {

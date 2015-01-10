@@ -32,8 +32,8 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute', 'ngSanitize'])
                 controller: 'UserAdsController'
             })
             .when('/user/ad/delete/:adId', {
-                templateUrl: 'templates/views/deleted-form.html',
-                //controller: 'UserAdsController'
+                templateUrl: 'templates/views/deleting-form.html',
+                controller: 'DeleteController'
             })
             .when('/user/ads/:statusId', {
                 templateUrl: 'templates/views/user-ads.html',

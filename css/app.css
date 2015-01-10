@@ -148,7 +148,7 @@ nav .sub-menu {
     width: 26rem;
 }
 
-.user-ad section:last-of-type {
+.user-ad section:last-of-type  {
     width: 19rem;
     border-left: 1px solid #507E32;
     margin-left: 1rem
@@ -176,7 +176,7 @@ nav .sub-menu {
     text-align: right;
 }
 
-.user-ad div span:first-of-type {
+.user-ad div span:first-of-type, .deleting-form div span:first-of-type {
     width: 5.5rem;
     text-align: right;
 }
@@ -185,8 +185,12 @@ nav .sub-menu {
     width: 28.34rem;
 }
 
-.user-ad div span:last-of-type {
+.user-ad div span:last-of-type, .deleting-form div span:last-of-type {
     width: 18.2rem;
+}
+
+.deleting-form div span:last-of-type {
+    width: 25.7rem;
 }
 
 .main-menu .sub-menu *, .ad *, .user-ad *,.login form input,
@@ -196,7 +200,7 @@ nav .sub-menu {
     margin-bottom: 0.5rem;
 }
 
-.login, .register, .edit-profile, .publish-add {
+.login, .register, .edit-profile, .publish-add, .deleting-form {
     width: 61rem;
 }
 
@@ -312,4 +316,8 @@ a.link {
 .user-area {
     float: right;
     font-size: 1.3rem;
+}
+
+.deleting-form .ad {
+    margin: auto;
 }

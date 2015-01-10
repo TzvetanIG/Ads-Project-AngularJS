@@ -19,8 +19,17 @@ adsApp.controller('MainController', function ($scope, $location, $rootScope, pag
 
     $scope.cancel = function () {
         $rootScope.$broadcast('cancel');
-        $location.path('#/ads');
+        $location.path(pageOptions.getAdsPath());
     };
+
+
+    $scope.checkForNull = function (string) {
+        if(string){
+            return string;
+        }
+
+        return 'None';
+    }
 
     $scope.$on("changePageOptions", function(event) {
         $scope.pageTitle =  pageOptions.getPageTitle();

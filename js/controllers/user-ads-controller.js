@@ -41,12 +41,5 @@ adsApp.controller('UserAdsController', ['$scope', 'pageOptions', 'adsData', 'fil
             );
         };
 
-        $scope.checkForNull = function (string) {
-            if(string){
-                return string;
-            }
-
-            return 'None';
-        }
 
     }]);
