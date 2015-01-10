@@ -9,7 +9,7 @@ adsApp.controller('PublishNewAdController', ['$scope', 'townsData', 'categoriesD
         $scope.publishAd = function (ad) {
             adsData.publishAd(ad,
                 function (data) {
-                    messageData.sentInfoMessage('Successfully  publish.');
+                    messageData.sentInfoMessage('Advertisement submitted for approval. Once approved, it will be published.');
                 },
                 function (error) {
                     messageData.sentErrorMessage('Publish failed', error)

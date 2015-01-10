@@ -1,0 +1,48 @@
+<div>
+    <message></message>
+    <form class="padding user-ad">
+        <h4 class="center">Edit Ad</h4>
+        <hr/>
+        <section>
+            <div>
+                <label for="title" class="padding05">Title:</label>
+                <input type="text" id="title" class="padding05" ng-model="ad.title" required>
+            </div>
+            <div>
+                <label for="text" class="padding05">Text:</label>
+                <textarea id="text" class="padding05" ng-model="ad.text" required></textarea>
+            </div>
+
+            <div>
+                <label for="text" class="padding05">Image:</label>
+                <input type="file" id="image" class="padding05" ng-model="ad.imageDataURL">
+            </div>
+            <div>
+                <label class="padding05">Category:</label>
+                <select class="padding05" ng-model="ad.categoryId"
+                        ng-options="category.id as category.name for category in categories">
+                    <option value="">-- choose town --</option>
+                </select>
+            </div>
+            <div>
+                <label class="padding05">Town:</label>
+                <select class="padding05" ng-model="ad.townId"
+                        ng-options="town.id as town.name for town in towns">
+                    <option value="">-- choose town --</option>
+                </select>
+            </div>
+        </section>
+        <section class="center">
+            <div class="image">
+                <img ng-src="{{ad.imageDataUrl}}">
+            </div>
+
+            <a class="button button-large">Change image</a>
+            <a class="button button-large">Delete image</a>
+        </section>
+        <div class="center">
+            <button class="button" ng-click="publishAd(ad)">Edit</button>
+            <button class="button" ng-click="cancel()">Cancel</button>
+        </div>
+    </form>
+</div>

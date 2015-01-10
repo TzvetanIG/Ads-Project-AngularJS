@@ -55,7 +55,7 @@ nav .sub-menu {
 }
 
 .main-menu, aside, main, main > div, main > div > div > form, .paging ul li, .ad .image,
-.ad > div > *, .ad section, .ad section div span,
+.ad > div > *, .ad section, .ad section div span, form.user-ad label,
 .user-ad .image, .user-ad > div > *, .user-ad section, .user-ad section span {
     display: inline-block;
     vertical-align: top;
@@ -136,7 +136,7 @@ nav .sub-menu {
     text-align: right;
 }
 
-.ad .image, .user-ad .image {
+.ad .image, .user-ad .image, form.user-ad .image {
     width: 11rem;
 }
 
@@ -154,7 +154,17 @@ nav .sub-menu {
     margin-left: 1rem
 }
 
-.ad .image img, .user-ad .image img {
+form.user-ad section:first-of-type {
+    width: 40rem;
+}
+
+form.user-ad section:last-of-type  {
+    width: 16rem;
+    border-left: none;
+    margin-left: 1rem
+}
+
+.ad .image img, .user-ad .image img,  form.user-ad .image img{
     width: 100%;
     border: 1px solid #649B3F;
 }
@@ -176,7 +186,8 @@ nav .sub-menu {
     text-align: right;
 }
 
-.user-ad div span:first-of-type, .deleting-form div span:first-of-type {
+.user-ad div span:first-of-type, .deleting-form div span:first-of-type,
+form.user-ad label {
     width: 5.5rem;
     text-align: right;
 }
@@ -195,12 +206,12 @@ nav .sub-menu {
 
 .main-menu .sub-menu *, .ad *, .user-ad *,.login form input,
 .register form input, .edit-profile form input,
-.publish-add form input, .publish-add select,
-.publish-add textarea {
+.publish-ad form input, .publish-ad select,
+.publish-ad textarea {
     margin-bottom: 0.5rem;
 }
 
-.login, .register, .edit-profile, .publish-add, .deleting-form {
+.login, .register, .edit-profile, .publish-ad, .deleting-form {
     width: 61rem;
 }
 
@@ -214,7 +225,7 @@ nav .sub-menu {
     margin: 0 auto;
 }
 
-.publish-add form {
+.publish-ad form {
     width: 40rem;
     margin: 0 auto;
 }
@@ -251,31 +262,35 @@ nav .sub-menu {
      margin: auto;
  }
 
-.publish-add input, .publish-add textarea {
+.publish-ad input, .publish-ad textarea {
     display: inline-block;
     width: 17.5rem;
     margin: auto;
 }
 
-.publish-add label {
+.publish-ad label {
     width: 5rem;
     display: inline-block;
     text-align: right;
 }
 
-.publish-add img {
+.publish-ad img {
     width: 13.5rem;
     height: 9rem;
     border: 1px solid #843C0C;
     float: right;
 }
 
-.publish-add textarea {
+.publish-ad textarea {
     height: 5rem;
 }
 
-.publish-add input[type=file], .publish-add select {
-    width: 32rem;
+.publish-ad input[type=file], .publish-ad select {
+     width: 32rem;
+ }
+
+form.user-ad input, form.user-ad select, form.user-ad textarea {
+    width: 31rem;
 }
 
 .login .button, .register .button,

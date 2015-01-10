@@ -25,20 +25,20 @@
         <section class="center">
             <div>Status</div>
             <span class="content padding05 button-large">{{ad.status}}</span>
-            <button class="button button-large"
+            <a class="button button-large"
                     ng-if="ad.status == 'Published' || ad.status == 'WaitingApproval'"
                     ng-click="deactivate(ad.id, $index)">
                 Deactivate
-            </button>
+            </a>
             <a href="{{'#/user/ad/edit/' + ad.id}}" class="button button-large"
                     ng-if="ad.status == 'Inactive' || ad.status == 'Rejected'">
                 Edit
             </a>
-            <button class="button button-large"
+            <a class="button button-large"
                     ng-if="ad.status == 'Inactive' || ad.status == 'Rejected'"
                     ng-click="publishAgain(ad.id, $index)">
                 Publish Again
-            </button>
+            </a>
             <a href="{{'#/user/ad/delete/' + ad.id}}" class="button button-large"
                     ng-if="ad.status == 'Inactive' || ad.status == 'Rejected'">
                 Delete
