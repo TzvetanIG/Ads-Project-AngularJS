@@ -5,7 +5,7 @@ adsApp.controller('PublishNewAdController', ['$scope', '$rootScope', 'townsData'
         pageOptions.setPageTitle('Ad - Publish New Ad');
         $scope.towns = townsData.getTowns();
         $scope.categories = categoriesData.getCategories();
-        $scope.ad = { imageDataUrl : '../../img/defaultImg.png'};
+        $scope.ad = {};
 
         $scope.publishAd = function (ad) {
             adsData.publishAd(ad,
