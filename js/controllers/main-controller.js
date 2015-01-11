@@ -2,8 +2,29 @@
 
 adsApp.controller('MainController', function ($scope, $location, $rootScope, pageOptions,
                                               filterData, messageData, userData) {
-    $scope.pageTitle =  pageOptions.getPageTitle();
-    $scope.navigationTemplate = pageOptions.getNavigationTemplate();
+
+    if(userData.isLogin()){
+        pageOptions.setNavigationTemplate('templates/includes/user-menu.html');
+        pageOptions.setAdsPath('#/ads');
+        $scope.user = userData.getCurrentUser();
+    } else {
+        pageOptions.setNavigationTemplate('templates/includes/guest-menu.html');
+        pageOptions.setAdsPath('#/user/ads');
+        $scope.user = null;
+    }
+
+    $rootScope.$on('$locationChangeSuccess', function () {
+        var path =  $location.path();
+        if(!userData.isLogin() && path.indexOf('user') > -1){
+            $location.path('#/ads');
+        }
+
+        if(userData.isLogin() && (path.indexOf('login') > -1 || path.indexOf('register') > -1)){
+            $location.path( pageOptions.getAdsPath());
+        }
+
+    });
+
 
     $scope.resetFilterData = function (){
         filterData.setCurrentPage(1);
@@ -13,7 +34,7 @@ adsApp.controller('MainController', function ($scope, $location, $rootScope, pag
 
     $scope.logout = function() {
         userData.logout();
-        $scope.user = undefined;
+        $scope.user = null;
         pageOptions.setNavigationTemplate('templates/includes/guest-menu.html');
     };
 
@@ -29,7 +50,8 @@ adsApp.controller('MainController', function ($scope, $location, $rootScope, pag
         }
 
         return 'None';
-    }
+    };
+
 
     $scope.$on("changePageOptions", function(event) {
         $scope.pageTitle =  pageOptions.getPageTitle();

@@ -89,13 +89,18 @@ adsApp.factory('userData', ['$http', '$resource', 'basicUrl', function ($http, $
         delete sessionStorage['currentUser'];
     }
 
+    function isLogin(){
+        return !!sessionStorage['currentUser'];
+    }
+
     return {
         login: login,
+        isLogin: isLogin,
         getCurrentUser: getCurrentUser,
         logout: logout,
         register: register,
         getUserProfile: getUserProfile,
         changePassword: changePassword,
-        editUserProfile: editUserProfile
+        editUserProfile: editUserProfile,
     };
 }]);

@@ -43,11 +43,11 @@ var adsApp = angular.module('adsApp', ['ngResource', 'ngRoute', 'ngSanitize'])
                 templateUrl: 'templates/views/user-ads.html',
                 controller: 'RouteController'
             })
-            .when('/publish-new-ad', {
+            .when('/user/publish-new-ad', {
                 templateUrl: 'templates/views/publish-new-ad.html',
                 controller: 'PublishNewAdController'
             })
-            .when('/edit-profile', {
+            .when('/user/edit-profile', {
                 templateUrl: 'templates/views/edit-profile.html',
                 controller: 'EditProfileController'
             })
