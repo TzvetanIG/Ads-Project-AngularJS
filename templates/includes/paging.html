@@ -1,0 +1,18 @@
+<ul ng-controller="PagingController">
+    <li>
+        <a href="#/page/1">First</a>
+    </li>
+    <li>
+        <a href="{{'#/page/' + previousPage}}">Previous</a>
+    </li>
+    <li  ng-repeat="page in pages">
+        <a href="{{'#/page/' + page}}"
+                ng-class="{'current-page' : currentPage == page}">{{page}}</a>
+    </li>
+    <li>
+        <a href="{{'#/page/' + nextPage}}">Next</a>
+    </li>
+    <li>
+        <a href="{{'#/page/' + lastPage}}">Last</a>
+    </li>
+</ul>
