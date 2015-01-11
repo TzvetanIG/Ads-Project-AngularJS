@@ -7,6 +7,8 @@ adsApp.controller('RegisterController', function ($scope, $rootScope, pageOption
     $scope.towns = townsData.getTowns();
 
     $scope.register = function (user) {
+        var user = $scope.user;
+
         userData.register(user,
             function (data) {
                 messageData.sentInfoMessage('User account created. Please login.');

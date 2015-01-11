@@ -36,7 +36,7 @@ adsApp.factory('messageData', function ($rootScope, $timeout) {
             }
         }
 
-        if (serverError && serverError.data.modelState) {
+        if (serverError && serverError.data && serverError.data.modelState) {
             var modelStateErrors = serverError.data.modelState;
             for (var propertyName in modelStateErrors) {
                 var errorMessages = modelStateErrors[propertyName];
