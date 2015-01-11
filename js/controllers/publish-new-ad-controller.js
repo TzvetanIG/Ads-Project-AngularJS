@@ -26,6 +26,7 @@ adsApp.controller('PublishNewAdController', ['$scope', '$rootScope', 'townsData'
                 },
                 function () {
                     messageData.sentErrorMessage('File type not supported!');
+                    $scope.$apply();
                 });
         };
     }]);

@@ -54,6 +54,7 @@ adsApp.controller('EditAdController', function ($scope, $routeParams, pageOption
             },
             function () {
                 messageData.sentErrorMessage('File type not supported!');
+                $scope.$apply();
             });
     };
 
