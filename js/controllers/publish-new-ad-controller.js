@@ -19,18 +19,13 @@ adsApp.controller('PublishNewAdController', ['$scope', '$rootScope', 'townsData'
         };
 
         $scope.selectFile = function (inputFileData) {
-            var file = inputFileData.files[0];
-            if (file.type.match(/image\/.*/)) {
-                var reader = new FileReader();
-                reader.onload = function() {
-                    $rootScope.$broadcast('selectImage', reader.result);
-                    $scope.ad.imageDataUrl = reader.result;
+            adsData.readImage(inputFileData,
+                function (imageData) {
+                    $scope.ad.imageDataUrl = imageData;
                     $scope.$apply();
-                };
-                reader.readAsDataURL(file);
-            } else {
-                messageData.sentErrorMessage('File type not supported!')
-            }
+                },
+                function () {
+                    messageData.sentErrorMessage('File type not supported!');
+                });
         };
-
     }]);

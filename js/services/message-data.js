@@ -51,6 +51,7 @@ adsApp.factory('messageData', function ($rootScope, $timeout) {
         if (errors.length > 0) {
             msg = msg + ":<br>" + errors.join("<br>");
         }
+
         message = msg;
         classMessage['info-message'] = false;
         classMessage['error-message'] = true;

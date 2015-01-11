@@ -15,7 +15,8 @@
 
             <div>
                 <label for="text" class="padding05">Image:</label>
-                <input type="file" id="image" class="padding05" ng-model="imageFile">
+                <input type="file" id="image" class="padding05"
+                       onchange="angular.element(this).scope().selectFile(this)">
             </div>
             <div>
                 <label class="padding05">Category:</label>
@@ -34,10 +35,9 @@
         </section>
         <section class="center">
             <div class="image">
-                <img ng-src="{{ad.imageDataUrl}}">
+                <img src="img/defaultImg.png" ng-src="{{ad.imageDataUrl}}">
             </div>
-            <a class="button button-large">Change image</a>
-            <a class="button button-large">Delete image</a>
+            <a class="button button-large" ng-click="deleteImage()">Delete image</a>
         </section>
         <div class="center">
             <button class="button" ng-click="editAd(ad)">Edit</button>

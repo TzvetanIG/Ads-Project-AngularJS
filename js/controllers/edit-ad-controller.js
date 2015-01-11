@@ -6,6 +6,7 @@ adsApp.controller('EditAdController', function ($scope, $routeParams, pageOption
     $scope.towns = townsData.getTowns();
     $scope.categories = categoriesData.getCategories();
 
+
     adsData.getAdById(
         $routeParams.adId,
         function (data) {
@@ -27,11 +28,15 @@ adsApp.controller('EditAdController', function ($scope, $routeParams, pageOption
             editAd.categoryId = ad.categoryId;
         }
 
-        if($scope.imageFile){
+        if(ad.imageDataUrl){
+            editAd.changeImage = true;
+            editAd.imageDataUrl = ad.imageDataUrl;
+        } else {
             editAd.changeImage = true;
         }
 
-        adsData.editAd($routeParams.adId, ad,
+
+        adsData.editAd($routeParams.adId, editAd,
             function (data) {
                 messageData.sentInfoMessage('Ad edited. Don\'t forget to submit it for publishing.');
             },
@@ -40,4 +45,21 @@ adsApp.controller('EditAdController', function ($scope, $routeParams, pageOption
             }
         );
     };
+
+    $scope.selectFile = function (inputFileData) {
+        adsData.readImage(inputFileData,
+            function (imageData) {
+                $scope.ad.imageDataUrl = imageData;
+                $scope.$apply();
+            },
+            function () {
+                messageData.sentErrorMessage('File type not supported!');
+            });
+    };
+
+    $scope.deleteImage = function () {
+        $scope.ad.imageDataUrl = 'img/defaultImg.png';
+        $scope.$apply();
+        delete $scope.ad.imageDataUrl;
+    }
 });

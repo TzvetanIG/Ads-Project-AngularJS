@@ -113,6 +113,19 @@ adsApp.factory('adsData', ['$resource', 'basicUrl', 'userData',
             return adsResource.editAd(id, ad, success, error);
         }
 
+        function readImage(inputFileData, success, error) {
+            var file = inputFileData.files[0];
+            if (file.type.match(/image\/.*/)) {
+                var reader = new FileReader();
+                reader.onload = function() {
+                    success(reader.result);
+                };
+                reader.readAsDataURL(file);
+            } else {
+                error();
+            }
+        };
+
         return {
             getAds: getAds,
             publishAd: publishAd,
@@ -120,7 +133,8 @@ adsApp.factory('adsData', ['$resource', 'basicUrl', 'userData',
             putRequest: putRequest,
             deleteAd: deleteAd,
             getAdById: getAdById,
-            editAd: editAd
+            editAd: editAd,
+            readImage: readImage
         };
 
     }]);
