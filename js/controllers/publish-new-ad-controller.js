@@ -1,10 +1,11 @@
 'use strict';
 
-adsApp.controller('PublishNewAdController', ['$scope', 'townsData', 'categoriesData', 'pageOptions', 'adsData', 'messageData',
-    function ($scope, townsData, categoriesData, pageOptions, adsData, messageData) {
+adsApp.controller('PublishNewAdController', ['$scope', '$rootScope', 'townsData', 'categoriesData', 'pageOptions', 'adsData', 'messageData',
+    function ($scope, $rootScope, townsData, categoriesData, pageOptions, adsData, messageData) {
         pageOptions.setPageTitle('Ad - Publish New Ad');
         $scope.towns = townsData.getTowns();
         $scope.categories = categoriesData.getCategories();
+        $scope.ad = { imageDataUrl : '../../img/defaultImg.png'};
 
         $scope.publishAd = function (ad) {
             adsData.publishAd(ad,
@@ -15,6 +16,21 @@ adsApp.controller('PublishNewAdController', ['$scope', 'townsData', 'categoriesD
                     messageData.sentErrorMessage('Publish failed', error)
                 }
             );
+        };
+
+        $scope.selectFile = function (inputFileData) {
+            var file = inputFileData.files[0];
+            if (file.type.match(/image\/.*/)) {
+                var reader = new FileReader();
+                reader.onload = function() {
+                    $rootScope.$broadcast('selectImage', reader.result);
+                    $scope.ad.imageDataUrl = reader.result;
+                    $scope.$apply();
+                };
+                reader.readAsDataURL(file);
+            } else {
+                messageData.sentErrorMessage('File type not supported!')
+            }
         };
 
     }]);

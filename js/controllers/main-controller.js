@@ -25,7 +25,6 @@ adsApp.controller('MainController', function ($scope, $location, $rootScope, pag
 
     });
 
-
     $scope.resetFilterData = function (){
         filterData.setCurrentPage(1);
         filterData.setCategoryId(0);

@@ -1,10 +1,10 @@
-<div class="publish-ad">
+<div class="publish-ad" ng-controller="PublishNewAdController">
     <message></message>
     <form class="padding">
         <h4 class="center">Publish New Ad</h4>
         <hr/>
         <div>
-            <img>
+            <img src="" ng-src="{{ad.imageDataUrl}}">
             <div>
                 <label for="title" class="padding05">Title:</label>
                 <input type="text" id="title" class="padding05" ng-model="ad.title" required>
@@ -17,7 +17,8 @@
         </div>
         <div>
             <label for="text" class="padding05">Image:</label>
-            <input type="file" id="image" class="padding05" ng-model="ad.imageDataURL">
+            <input type="file" id="image" class="padding05"
+                   onchange="angular.element(this).scope().selectFile(this)">
         </div>
         <div>
             <label class="padding05">Category:</label>
